@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Device Specifications</title>
+    <script src="https://cdn.jsdelivr.net/npm/moment/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-bikram"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-title {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .info-detail {
+            font-size: 0.9em;
+            color: #333;
+            padding: 4px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Comprehensive Device Specifications</h1>
+
+    <div class="info-section">
+        <div class="info-title">Browser Information</div>
+        <div class="info-detail">Browser Name: <span id="browserName"></span></div>
+        <div class="info-detail">Browser Version: <span id="browserVersion"></span></div>
+        <div class="info-detail">Cookies Enabled: <span id="cookiesEnabled"></span></div>
+        <div class="info-detail">Language: <span id="language"></span></div>
+        <div class="info-detail">Time Zone: <span id="timeZone"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Screen Information</div>
+        <div class="info-detail">Resolution: <span id="resolution"></span></div>
+        <div class="info-detail">Available Width: <span id="availWidth"></span></div>
+        <div class="info-detail">Available Height: <span id="availHeight"></span></div>
+        <div class="info-detail">Device Pixel Ratio: <span id="pixelRatio"></span></div>
+        <div class="info-detail">Color Depth: <span id="colorDepth"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Memory & Processor Information</div>
+        <div class="info-detail">Approximate RAM: <span id="memory"></span></div>
+        <div class="info-detail">Processor Cores: <span id="processorCores"></span></div>
+        <div class="info-detail">Hardware Concurrency: <span id="hardwareConcurrency"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Network Information</div>
+        <div class="info-detail">Network Type: <span id="networkType"></span></div>
+        <div class="info-detail">Effective Connection Type: <span id="effectiveType"></span></div>
+        <div class="info-detail">RTT (Round-Trip Time): <span id="rtt"></span></div>
+        <div class="info-detail">Downlink: <span id="downlink"></span></div>
+        <div class="info-detail">Uplink: <span id="uplink"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Battery Information</div>
+        <div class="info-detail">Battery Level: <span id="batteryLevel"></span></div>
+        <div class="info-detail">Charging: <span id="charging"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Display Preferences</div>
+        <div class="info-detail">Color Scheme Preference: <span id="colorSchemePreference"></span></div>
+        <div class="info-detail">Reduced Motion Preference: <span id="reducedMotionPreference"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">GPU Information</div>
+        <div class="info-detail">GPU Vendor: <span id="gpuVendor"></span></div>
+        <div class="info-detail">GPU Renderer: <span id="gpuRenderer"></span></div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-title">Current Date and Time</div>
+        <div class="info-detail">Current Date (AD): <span id="currentDate"></span></div>
+        <div class="info-detail">Current Date (BS): <span id="currentBSDate"></span></div>
+        <div class="info-detail">Current Time: <span id="currentTime"></span></div>
+        <div class="info-detail">Current Day: <span id="currentDay"></span></div>
+    </div>
+
+    <script>
+        // Browser Information
+        if (navigator.userAgentData) {
+            document.getElementById("browserName").innerText = navigator.userAgentData.brands[0]?.brand || "Unavailable";
+            document.getElementById("browserVersion").innerText = navigator.userAgentData.brands[0]?.version || "Unavailable";
+        } else {
+            document.getElementById("browserName").innerText = "Unavailable";
+            document.getElementById("browserVersion").innerText = "Unavailable";
+        }
+        document.getElementById("cookiesEnabled").innerText = navigator.cookieEnabled ? "Yes" : "No";
+        document.getElementById("language").innerText = navigator.language;
+        document.getElementById("timeZone").innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Screen Information
+        document.getElementById("resolution").innerText = `${screen.width} x ${screen.height}`;
+        document.getElementById("availWidth").innerText = screen.availWidth;
+        document.getElementById("availHeight").innerText = screen.availHeight;
+        document.getElementById("pixelRatio").innerText = window.devicePixelRatio;
+        document.getElementById("colorDepth").innerText = screen.colorDepth;
+
+        // Memory & Processor Information
+        if (navigator.deviceMemory) {
+            document.getElementById("memory").innerText = `${navigator.deviceMemory} GB`;
+        } else {
+            document.getElementById("memory").innerText = "Unavailable";
+        }
+        document.getElementById("processorCores").innerText = navigator.hardwareConcurrency || "Unavailable";
+        document.getElementById("hardwareConcurrency").innerText = navigator.hardwareConcurrency || "Unavailable";
+
+        // Network Information
+        if (navigator.connection) {
+            document.getElementById("networkType").innerText = navigator.connection.type || "Unknown";
+            document.getElementById("effectiveType").innerText = navigator.connection.effectiveType || "Unknown";
+            document.getElementById("rtt").innerText = `${navigator.connection.rtt} ms`;
+            document.getElementById("downlink").innerText = `${navigator.connection.downlink} Mbps`;
+            document.getElementById("uplink").innerText = `${navigator.connection.uplink || "Unknown"} Mbps`;
+        } else {
+            document.getElementById("networkType").innerText = "Unavailable";
+            document.getElementById("effectiveType").innerText = "Unavailable";
+            document.getElementById("rtt").innerText = "Unavailable";
+            document.getElementById("downlink").innerText = "Unavailable";
+            document.getElementById("uplink").innerText = "Unavailable";
+        }
+
+        // Battery Information
+        if (navigator.getBattery) {
+            navigator.getBattery().then(battery => {
+                document.getElementById("batteryLevel").innerText = `${Math.round(battery.level * 100)}%`;
+                document.getElementById("charging").innerText = battery.charging ? "Yes" : "No";
+            });
+        } else {
+            document.getElementById("batteryLevel").innerText = "Unavailable";
+            document.getElementById("charging").innerText = "Unavailable";
+        }
+
+        // Display Preferences
+        document.getElementById("colorSchemePreference").innerText = window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light";
+        document.getElementById("reducedMotionPreference").innerText = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "Reduced" : "Normal";
+
+        // gpu info
+        function getGPUInfo() {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+                return { renderer, vendor };
+            } else {
+                return null;
+            }
+        }
+
+        const gpuInfo = getGPUInfo();
+        if (gpuInfo) {
+            document.getElementById('gpuVendor').innerText = gpuInfo.vendor;
+            document.getElementById('gpuRenderer').innerText = gpuInfo.renderer;
+        } else {
+            document.getElementById('gpuVendor').innerText = "Unavailable";
+            document.getElementById('gpuRenderer').innerText = "Unavailable";
+        }
+
+        // date and time 
+        function updateDateTime() {
+            const now = new Date();
+
+            const date = now.toLocaleDateString();
+
+            const time = now.toLocaleTimeString();
+
+            const day = now.toLocaleString('en-US', { weekday: 'long' });
+
+            const currentBSDate = moment().format('YYYY-MM-DD');
+
+            document.getElementById('currentBSDate').innerText = currentBSDate;
+            document.getElementById('currentDate').innerText = date;
+            document.getElementById('currentTime').innerText = time;
+            document.getElementById('currentDay').innerText = day;
+        }
+
+        setInterval(updateDateTime, 1000);
+
+        updateDateTime();
+
+    </script>
+</body>
+
+</html>
