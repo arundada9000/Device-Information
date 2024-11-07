@@ -1,0 +1,21 @@
+{
+    "name": "Device Information",
+    "short_name": "DI",
+    "description": "Information about your device all in one place.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3367D6",
+    "icons": [
+      {
+        "src": "./images/smartphone.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "./images/responsive.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
