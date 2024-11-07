@@ -1,20 +1,26 @@
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("my-cache-name").then((cache) => {
-      return cache.addAll(["/", "/index.html", "/styles.css", "/script.js"]);
+      return cache.addAll([
+        "/",
+        "/index.html",
+        "/styles.css",
+        "/script.js",
+        "/images/information.ico",
+        "/images/responsive.png",
+        "/images/smartphone.png",
+      ]);
     })
   );
 });
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => response || fetch(event.request))
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
   );
 });
-
-// Inside your service worker file
 
 const BACKGROUND_SYNC_QUEUE = "background-sync-queue";
 
