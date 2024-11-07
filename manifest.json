@@ -1,8 +1,8 @@
 {
     "name": "Device Information",
-    "short_name": "DI",
+    "short_name": "System Info",
     "description": "Information about your device all in one place.",
-    "start_url": "/",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#3367D6",
