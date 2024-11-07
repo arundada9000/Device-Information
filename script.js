@@ -61,10 +61,14 @@ function installPWA() {
 }
 
 function refreshApp() {
-  navigator.serviceWorker.ready.then((registration) => {
-    caches.delete("my-cache-name");
-    window.location.reload();
-  });
+  if (navigator.onLine) {
+    navigator.serviceWorker.ready.then((registration) => {
+      caches.delete("my-cache-name");
+      window.location.reload();
+    });
+  } else {
+    console.log("No network connection. Refresh aborted.");
+  }
 }
 
 // Basic Information
