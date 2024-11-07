@@ -17,11 +17,26 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request)
+          .then((fetchResponse) => {
+            if (!fetchResponse || fetchResponse.status !== 200) {
+              return response;
+            }
+            const responseClone = fetchResponse.clone();
+            caches.open("my-cache-name").then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+            return fetchResponse;
+          })
+          .catch(() => {
+            return response;
+          })
+      );
     })
   );
 });
-
 const BACKGROUND_SYNC_QUEUE = "background-sync-queue";
 
 self.addEventListener("sync", (event) => {
