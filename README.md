@@ -1,10 +1,10 @@
-# Device Details Explorer 🌐📱
+﻿# Device Details Explorer 
 
 Welcome to **Device Details Explorer**! This website helps you explore various details about the device you're using, such as its **height, width, network speed, graphics, RAM**, browser type, and more. It's a simple, fast, and privacy-respecting tool.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Device Information:** Get detailed information about the device, including:
   - **Device Dimensions:** Screen height and width.
@@ -18,13 +18,13 @@ Welcome to **Device Details Explorer**! This website helps you explore various d
 
 ---
 
-## 🌟 Live Demo
+##  Live Demo
 
 Check it out Here : [About Device](https://aboutdevice.netlify.app)
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Device Details Explorer** uses the following technologies:
 
@@ -36,7 +36,7 @@ Check it out Here : [About Device](https://aboutdevice.netlify.app)
 
 ---
 
-## 🌟 How It Works
+##  How It Works
 
 1. **No Backend:** All data is collected directly in your browser and **never stored** or transmitted to any servers. We value your privacy, and no personal information is accessed or shared.
 2. **Client-Side Processing:** The website uses **JavaScript** to fetch device details like screen size, browser information, RAM, and network speed directly from the client side.
@@ -44,7 +44,7 @@ Check it out Here : [About Device](https://aboutdevice.netlify.app)
 
 ---
 
-## 🛡️ Privacy Notice
+##  Privacy Notice
 
 **Device Details Explorer** does not store any data or send it to any servers. All data is collected **locally** on your device via **JavaScript** APIs. There is **no backend** involved, and no information is shared with third parties. Your privacy is our priority!
 
@@ -62,7 +62,7 @@ If you want to contribute to the project, feel free to fork the repository, make
 
 ---
 
-## 📬 Contact
+##  Contact
 
 If you have any questions, feature requests, or suggestions, feel free to reach out to me:
 
@@ -71,4 +71,9 @@ If you have any questions, feature requests, or suggestions, feel free to reach 
 
 ---
 
-_Thank you for checking out **Device Details Explorer**! I hope it helps you better understand your device!_ 🌟
+_Thank you for checking out **Device Details Explorer**! I hope it helps you better understand your device!_ 
+---
+
+## License
+
+This project is for educational and personal learning purposes only. Commercial use, public deployment, or any revenue-generating use requires explicit written permission from the author. See [LICENSE](LICENSE) for details.
